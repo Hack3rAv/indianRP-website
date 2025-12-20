@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
     // -----------------------------
     // MAINTENANCE MODE (FRONTEND)
     // -----------------------------
-    MAINTENANCE_MODE: true,
+    MAINTENANCE_MODE: false,
 
     // -----------------------------
     // ROUTING
@@ -36,3 +36,4 @@ window.SITE_CONFIG = {
     // Reduce motion automatically on small devices
     REDUCE_MOTION_WIDTH: 768
 };
+
