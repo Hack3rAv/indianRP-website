@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Powered by Neopix</title>
+
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/wiki.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="nav-container">
+
+            <div class="logo">
+                INDIAN <span>RP</span>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/" data-link>HOME</a></li>
+                    <li><a href="/features" data-link>FEATURES</a></li>
+                    <li><a href="/wiki" data-link>WIKI</a></li>
+                    <li><a href="/rules" data-link>RULES</a></li>
+                    <li><a href="/community" data-link>COMMUNITY</a></li>
+                    <li><a href="/download" data-link>DOWNLOAD</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Server status injected by JS -->
+                <div id="headerStatus"></div>
+
+                <!-- Placeholder (no auth yet) -->
+                <button class="btn-mega" disabled>
+                    LOGIN
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= MAIN APP OUTLET ================= -->
+    <main id="app-content">
+        <!-- Pages will be injected here -->
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container footer-content">
+            <h2>
+                POWERED BY <span class="text-primary">NEOPIX</span>
+            </h2>
+            <p>
+                &copy; 2025 Indian Roleplay. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/serverStatus.js"></script>
+    <script src="/assets/js/parallax.js"></script>
+    <script src="/assets/js/horizontal.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
