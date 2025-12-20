@@ -2,52 +2,52 @@
  * =====================================================
  * HISTORY API ROUTER (FRONTEND ONLY)
  * =====================================================
- * - No frameworks
- * - No backend assumptions
- * - Clean, predictable behavior
- * =====================================================
  */
 
 const appOutlet = document.getElementById("app-content");
 
 /**
- * Map routes to page files
+ * Resolve route → file path
  */
-const ROUTES = {
-    "/": "home.html",
-    "/features": "features.html",
-    "/wiki": "wiki.html",
-    "/rules": "rules.html",
-    "/download": "download.html",
-    "/community": "community.html",
-    "/apply": "apply.html"
-};
+function resolvePage(path) {
 
-/**
- * Load a page into the app outlet
- */
-async function loadPage(path, replaceState = false) {
-    // Maintenance mode override
+    // ---- Maintenance override ----
     if (window.SITE_CONFIG.MAINTENANCE_MODE && path !== "/maintenance") {
-        path = "/maintenance";
+        return "/pages/maintenance.html";
     }
 
-    const pageFile =
-        ROUTES[path] ||
-        (path.startsWith("/admin") ? path.replace("/admin/", "admin/") + ".html" : null);
+    // ---- Admin routes ----
+    if (path.startsWith("/admin")) {
+        const subPath = path.replace("/admin", "") || "/dashboard";
+        return `/admin${subPath}.html`;
+    }
 
-    const finalFile = pageFile
-        ? `/pages/${pageFile}`
-        : "/pages/404.html";
+    // ---- Public routes ----
+    const ROUTES = {
+        "/": "/pages/home.html",
+        "/features": "/pages/features.html",
+        "/wiki": "/pages/wiki.html",
+        "/rules": "/pages/rules.html",
+        "/download": "/pages/download.html",
+        "/community": "/pages/community.html",
+        "/apply": "/pages/apply.html",
+        "/maintenance": "/pages/maintenance.html"
+    };
+
+    return ROUTES[path] || "/pages/404.html";
+}
+
+/**
+ * Load page
+ */
+async function loadPage(path, replaceState = false) {
+    const filePath = resolvePage(path);
 
     try {
-        const response = await fetch(finalFile, { cache: "no-store" });
+        const res = await fetch(filePath, { cache: "no-store" });
+        if (!res.ok) throw new Error("Not found");
 
-        if (!response.ok) {
-            throw new Error("Page not found");
-        }
-
-        const html = await response.text();
+        const html = await res.text();
         appOutlet.innerHTML = html;
 
         if (replaceState) {
@@ -56,33 +56,34 @@ async function loadPage(path, replaceState = false) {
             history.pushState({}, "", path);
         }
 
-        // Page loaded hook (used later)
-        document.dispatchEvent(new CustomEvent("page:loaded", { detail: { path } }));
+        document.dispatchEvent(
+            new CustomEvent("page:loaded", { detail: { path } })
+        );
 
     } catch (err) {
         console.error("[Router]", err);
-        appOutlet.innerHTML = "<h1 style='padding:40px'>Page failed to load</h1>";
+
+        const fallback = await fetch("/pages/404.html");
+        appOutlet.innerHTML = await fallback.text();
     }
 }
 
 /**
- * Handle link clicks
+ * Intercept internal links
  */
 document.addEventListener("click", (e) => {
     const link = e.target.closest("a[data-link]");
     if (!link) return;
 
     const href = link.getAttribute("href");
-
-    // Ignore external links
-    if (!href.startsWith("/")) return;
+    if (!href || !href.startsWith("/")) return;
 
     e.preventDefault();
     loadPage(href);
 });
 
 /**
- * Handle browser navigation (back / forward)
+ * Back / Forward
  */
 window.addEventListener("popstate", () => {
     loadPage(window.location.pathname, true);

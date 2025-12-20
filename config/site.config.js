@@ -36,4 +36,3 @@ window.SITE_CONFIG = {
     // Reduce motion automatically on small devices
     REDUCE_MOTION_WIDTH: 768
 };
-
