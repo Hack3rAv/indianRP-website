@@ -1,12 +1,10 @@
 /* =====================================================
-   WIKI PAGE STYLES
+   WIKI PAGE - INTEGRATED WITH GLOBAL LAYOUT
    ===================================================== */
 
-/* -----------------------------
-   WIKI LAYOUT
------------------------------ */
 .wiki-page {
-    padding: 120px 0 80px;
+    /* Uses global padding-top to account for the 80px fixed header */
+    padding: 40px 0 80px; 
     background: linear-gradient(to bottom, #050505, #0a0a0a);
 }
 
@@ -15,44 +13,73 @@
     grid-template-columns: 280px 1fr;
     gap: 40px;
     align-items: start;
+    max-width: 1600px; /* Matching your .nav-container width */
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 /* -----------------------------
-   SIDEBAR
+   SIDEBAR (Sticky & Responsive)
 ----------------------------- */
 .wiki-sidebar {
     position: sticky;
-    top: 120px;
-    height: fit-content;
+    /* Calculated: 80px (header) + 24px (spacing) */
+    top: 104px; 
+    align-self: flex-start;
+    max-height: calc(100vh - 140px);
+    z-index: 10;
 }
 
+.wiki-sidebar::before {
+    content: "WIKI NAVIGATION";
+    display: block;
+    font-family: var(--font-head);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+/* -----------------------------
+   SEARCH (Skewed Tactical Style)
+----------------------------- */
 .wiki-search {
     width: 100%;
     padding: 14px;
     margin-bottom: 24px;
-
     background: rgba(0,0,0,0.4);
     border: 1px solid var(--border-soft);
     color: var(--text-main);
-
     font-family: var(--font-body);
     font-size: 0.85rem;
     letter-spacing: 1px;
-
-    clip-path: var(--skew-shape);
+    outline: none;
+    /* Replicating the shape from image */
+    clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
+    transition: border-color 0.2s;
 }
 
-.wiki-search::placeholder {
-    color: #777;
+.wiki-search:focus {
+    border-color: var(--primary);
 }
 
+/* -----------------------------
+   NAVIGATION BOX
+----------------------------- */
 .wiki-nav {
-    background: var(--glass);
+    background: rgba(255,255,255,0.03);
     border: 1px solid var(--border-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     padding: 20px 0;
-    clip-path: var(--skew-shape);
+    clip-path: polygon(0 0, 98% 0, 100% 100%, 2% 100%);
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
 }
+
+/* Scrollbar styling to match global dark theme */
+.wiki-nav::-webkit-scrollbar { width: 4px; }
+.wiki-nav::-webkit-scrollbar-thumb { background: var(--primary); }
 
 .wiki-nav-group {
     margin-bottom: 20px;
@@ -65,10 +92,12 @@
     letter-spacing: 2px;
     color: var(--primary);
     font-family: var(--font-head);
+    text-transform: uppercase;
 }
 
 .wiki-nav-item {
     display: block;
+    position: relative;
     padding: 12px 20px;
     color: #888;
     font-family: var(--font-head);
@@ -76,30 +105,35 @@
     font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+}
 
-    border-left: 2px solid transparent;
-    transition: 0.25s;
+.wiki-nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: transparent;
+    transition: background 0.25s;
 }
 
 .wiki-nav-item:hover,
 .wiki-nav-item.active {
-    color: var(--text-main);
-    background: linear-gradient(
-        90deg,
-        rgba(255,153,51,0.12),
-        transparent
-    );
-    border-left-color: var(--primary);
-    padding-left: 28px;
+    color: #fff;
+    background: linear-gradient(90deg, rgba(255,153,51,0.1), transparent);
+}
+
+.wiki-nav-item:hover::before,
+.wiki-nav-item.active::before {
+    background: var(--primary);
 }
 
 /* -----------------------------
-   CONTENT
+   CONTENT & CARDS
 ----------------------------- */
-.wiki-content {
-    padding-right: 10px;
-}
-
 .wiki-header {
     margin-bottom: 50px;
     border-bottom: 1px solid var(--border-soft);
@@ -107,71 +141,49 @@
 }
 
 .wiki-header h1 {
-    font-size: 3rem;
+    font-family: var(--font-head);
+    font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 12px;
 }
 
-.wiki-header p {
-    max-width: 600px;
-}
-
-/* -----------------------------
-   SECTIONS & CARDS
------------------------------ */
-.wiki-section {
-    margin-bottom: 60px;
-}
-
-.wiki-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
+.wiki-header span { color: var(--accent); }
 
 .wiki-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid var(--border-soft);
-    padding: 24px;
+    padding: 30px 34px;
     margin-bottom: 20px;
     position: relative;
-
     border-left: 3px solid rgba(255,255,255,0.1);
-    transition: 0.25s;
+    transition: all 0.3s ease;
 }
 
 .wiki-card:hover {
-    background: rgba(255,255,255,0.06);
     border-left-color: var(--primary);
-    transform: translateX(4px);
+    background: rgba(255,255,255,0.05);
 }
 
 .wiki-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
 }
 
 .wiki-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: #aaa;
+    line-height: 1.7;
 }
 
 .wiki-card .badge {
     position: absolute;
-    top: 24px;
-    right: 24px;
-}
-
-/* -----------------------------
-   RESPONSIVE
------------------------------ */
-@media (max-width: 900px) {
-
-    .wiki-container {
-        grid-template-columns: 1fr;
-    }
-
-    .wiki-sidebar {
-        position: relative;
-        top: 0;
-        margin-bottom: 40px;
-    }
+    top: 30px;
+    right: 34px;
+    font-family: var(--font-head);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 4px 10px;
+    border: 1px solid currentColor;
+    text-transform: uppercase;
 }

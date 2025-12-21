@@ -1,110 +1,182 @@
-<!-- ================= WIKI PAGE ================= -->
-<section class="wiki-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Wiki</title>
 
-    <div class="container wiki-container">
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/wiki.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-        <!-- ================= SIDEBAR ================= -->
-        <aside class="wiki-sidebar">
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body>
 
-            <input
-                type="text"
-                class="wiki-search"
-                placeholder="SEARCH DOCUMENTATION..."
-                disabled
-            />
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="nav-container">
 
-            <div class="wiki-nav">
+            <div class="logo">
+                INDIAN <span>RP</span>
+            </div>
 
-                <div class="wiki-nav-group">
-                    <div class="wiki-nav-title">CORE RULES</div>
-                    <a href="#" class="wiki-nav-item active">General Rules</a>
-                    <a href="#" class="wiki-nav-item">Combat Rules</a>
-                    <a href="#" class="wiki-nav-item">Roleplay Violations</a>
-                </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">HOME</a></li>
+                    <li><a href="/pages/features.html">FEATURES</a></li>
+                    <li><a href="/pages/wiki.html" class="active">WIKI</a></li>
+                    <li><a href="/pages/rules.html">RULES</a></li>
+                    <li><a href="/pages/community.html">COMMUNITY</a></li>
+                    <li><a href="/pages/download.html">DOWNLOAD</a></li>
+                </ul>
+            </nav>
 
-                <div class="wiki-nav-group">
-                    <div class="wiki-nav-title">ADMINISTRATION</div>
-                    <a href="#" class="wiki-nav-item">Admin Rules</a>
-                    <a href="#" class="wiki-nav-item">Punishment System</a>
-                    <a href="#" class="wiki-nav-item">Appeals</a>
-                </div>
+            <div class="header-actions">
+                <div id="headerStatus"></div>
+                <button class="btn-mega" disabled>LOGIN</button>
+            </div>
 
-                <div class="wiki-nav-group">
-                    <div class="wiki-nav-title">GUIDES</div>
-                    <a href="#" class="wiki-nav-item">Getting Started</a>
-                    <a href="#" class="wiki-nav-item">Legal Jobs</a>
-                    <a href="#" class="wiki-nav-item">Illegal Activities</a>
-                    <a href="#" class="wiki-nav-item">Keybinds</a>
-                </div>
+        </div>
+    </header>
+
+    <!-- ================= WIKI PAGE ================= -->
+    <main>
+        <section class="wiki-page">
+
+            <div class="container wiki-container">
+
+                <!-- ================= SIDEBAR ================= -->
+                <aside class="wiki-sidebar">
+
+                    <input
+                        type="text"
+                        class="wiki-search"
+                        placeholder="SEARCH DOCUMENTATION..."
+                        disabled
+                    />
+
+                    <div class="wiki-nav">
+
+                        <div class="wiki-nav-group">
+                            <div class="wiki-nav-title">CORE RULES</div>
+                            <a href="#" class="wiki-nav-item active">General Rules</a>
+                            <a href="#" class="wiki-nav-item">Combat Rules</a>
+                            <a href="#" class="wiki-nav-item">Roleplay Violations</a>
+                        </div>
+
+                        <div class="wiki-nav-group">
+                            <div class="wiki-nav-title">ADMINISTRATION</div>
+                            <a href="#" class="wiki-nav-item">Admin Rules</a>
+                            <a href="#" class="wiki-nav-item">Punishment System</a>
+                            <a href="#" class="wiki-nav-item">Appeals</a>
+                        </div>
+
+                        <div class="wiki-nav-group">
+                            <div class="wiki-nav-title">GUIDES</div>
+                            <a href="#" class="wiki-nav-item">Getting Started</a>
+                            <a href="#" class="wiki-nav-item">Legal Jobs</a>
+                            <a href="#" class="wiki-nav-item">Illegal Activities</a>
+                            <a href="#" class="wiki-nav-item">Keybinds</a>
+                        </div>
+
+                    </div>
+                </aside>
+
+                <!-- ================= CONTENT ================= -->
+                <article class="wiki-content">
+
+                    <header class="wiki-header">
+                        <h1>
+                            INDIAN RP <span class="text-accent">WIKI</span>
+                        </h1>
+                        <p>
+                            Official documentation for Indian Roleplay.
+                            Rules, systems, and guides every player must know.
+                        </p>
+                    </header>
+
+                    <!-- ================= RULE SECTION ================= -->
+                    <section class="wiki-section">
+
+                        <h2>1. GENERAL ROLEPLAY RULES</h2>
+
+                        <div class="wiki-card">
+                            <h3>1.1 Stay In Character</h3>
+                            <span class="badge badge-primary">CORE</span>
+                            <p>
+                                Players must remain in character at all times.
+                                Out-of-character communication in voice or local chat
+                                is strictly prohibited.
+                            </p>
+                        </div>
+
+                        <div class="wiki-card">
+                            <h3>1.2 Powergaming</h3>
+                            <span class="badge badge-danger">PUNISHABLE</span>
+                            <p>
+                                Performing actions that are unrealistic or force roleplay
+                                on others without giving them a chance to respond.
+                            </p>
+                        </div>
+
+                    </section>
+
+                    <!-- ================= COMBAT SECTION ================= -->
+                    <section class="wiki-section">
+
+                        <h2>2. COMBAT RULES</h2>
+
+                        <div class="wiki-card">
+                            <h3>2.1 Deathmatching (DM)</h3>
+                            <span class="badge badge-danger">STRICT</span>
+                            <p>
+                                Killing another player without a valid roleplay reason
+                                is forbidden and will result in punishment.
+                            </p>
+                        </div>
+
+                        <div class="wiki-card">
+                            <h3>2.2 New Life Rule (NLR)</h3>
+                            <span class="badge badge-primary">IMPORTANT</span>
+                            <p>
+                                After death, a player must forget all events leading
+                                to that situation and may not return for a defined time.
+                            </p>
+                        </div>
+
+                    </section>
+
+                </article>
 
             </div>
-        </aside>
+        </section>
+    </main>
 
-        <!-- ================= CONTENT ================= -->
-        <article class="wiki-content">
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container footer-content">
+            <h2>
+                POWERED BY <span class="text-primary">NEOPIX</span>
+            </h2>
+            <p>
+                &copy; 2025 Indian Roleplay. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-            <header class="wiki-header">
-                <h1>
-                    INDIAN RP <span class="text-accent">WIKI</span>
-                </h1>
-                <p>
-                    Official documentation for Indian Roleplay.
-                    Rules, systems, and guides every player must know.
-                </p>
-            </header>
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/serverStatus.js"></script>
+    <script src="/assets/js/parallax.js"></script>
+    <script src="/assets/js/horizontal.js"></script>
+    <script src="/assets/js/app.js"></script>
 
-            <!-- ================= RULE SECTION ================= -->
-            <section class="wiki-section">
-
-                <h2>1. GENERAL ROLEPLAY RULES</h2>
-
-                <div class="wiki-card">
-                    <h3>1.1 Stay In Character</h3>
-                    <span class="badge badge-primary">CORE</span>
-                    <p>
-                        Players must remain in character at all times.
-                        Out-of-character communication in voice or local chat
-                        is strictly prohibited.
-                    </p>
-                </div>
-
-                <div class="wiki-card">
-                    <h3>1.2 Powergaming</h3>
-                    <span class="badge badge-danger">PUNISHABLE</span>
-                    <p>
-                        Performing actions that are unrealistic or force roleplay
-                        on others without giving them a chance to respond.
-                    </p>
-                </div>
-
-            </section>
-
-            <!-- ================= COMBAT SECTION ================= -->
-            <section class="wiki-section">
-
-                <h2>2. COMBAT RULES</h2>
-
-                <div class="wiki-card">
-                    <h3>2.1 Deathmatching (DM)</h3>
-                    <span class="badge badge-danger">STRICT</span>
-                    <p>
-                        Killing another player without a valid roleplay reason
-                        is forbidden and will result in punishment.
-                    </p>
-                </div>
-
-                <div class="wiki-card">
-                    <h3>2.2 New Life Rule (NLR)</h3>
-                    <span class="badge badge-primary">IMPORTANT</span>
-                    <p>
-                        After death, a player must forget all events leading
-                        to that situation and may not return for a defined time.
-                    </p>
-                </div>
-
-            </section>
-
-        </article>
-
-    </div>
-</section>
+</body>
+</html>

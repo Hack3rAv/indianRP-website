@@ -345,3 +345,60 @@ footer {
     font-size: 0.8rem;
     opacity: 0.6;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-links a.active {
+    color: var(--primary);
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+}
+
+
+
+
+
+
+
+
+
+.maintenance-page .maintenance-title {
+    letter-spacing: 2px;
+}
+
+.maintenance-page .maintenance-text {
+    max-width: 520px;
+    margin: 0 auto 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.nav-links a {
+    padding: 8px 4px;
+}

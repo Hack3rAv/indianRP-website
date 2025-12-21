@@ -34,7 +34,7 @@ function resolvePage(path) {
         "/maintenance": "/pages/maintenance.html"
     };
 
-    return ROUTES[path] || "/pages/404.html";
+    return ROUTES[path] || "/404.html";
 }
 
 /**
@@ -63,7 +63,7 @@ async function loadPage(path, replaceState = false) {
     } catch (err) {
         console.error("[Router]", err);
 
-        const fallback = await fetch("/pages/404.html");
+        const fallback = await fetch("/404.html");
         appOutlet.innerHTML = await fallback.text();
     }
 }
@@ -95,3 +95,21 @@ window.addEventListener("popstate", () => {
 document.addEventListener("DOMContentLoaded", () => {
     loadPage(window.location.pathname, true);
 });
+
+
+
+
+
+
+
+
+function updateActiveNav(path) {
+    document.querySelectorAll("a[data-link]").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === path) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+}

@@ -48,12 +48,15 @@ function initLenis() {
  * Reset scroll to top on navigation
  */
 function resetScroll() {
-    if (lenis) {
-        lenis.scrollTo(0, { immediate: true });
-    } else {
-        window.scrollTo(0, 0);
-    }
+    requestAnimationFrame(() => {
+        if (lenis) {
+            lenis.scrollTo(0, { immediate: true });
+        } else {
+            window.scrollTo({ top: 0, behavior: "auto" });
+        }
+    });
 }
+
 
 /**
  * Handle page loaded hook
