@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Thread | Indian Roleplay Forum</title>
+
+    <!-- CORE STYLES -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/forum.css" />
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">INDIAN <span>RP</span></div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">HOME</a></li>
+                <li><a href="/pages/forum/index.html" class="active">FORUM</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="app-content">
+
+    <section class="forum-new">
+        <div class="container">
+
+            <h1>Create New Thread</h1>
+
+            <!-- CATEGORY SELECT -->
+            <div class="form-group">
+                <label>Category</label>
+                <select id="threadCategory">
+                    <option value="">Select category</option>
+                    <option value="support">Support</option>
+                    <option value="application">Application</option>
+                    <option value="appeal">Appeal</option>
+                    <option value="discussion">General Discussion</option>
+                </select>
+            </div>
+
+            <!-- THREAD TITLE -->
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" placeholder="Enter thread title">
+            </div>
+
+            <!-- SUPPORT FIELDS -->
+            <div class="form-block hidden" id="supportBlock">
+                <h3>Support Details</h3>
+
+                <div class="form-group">
+                    <label>Issue Type</label>
+                    <select>
+                        <option>Technical</option>
+                        <option>Account</option>
+                        <option>Gameplay</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- APPLICATION FIELDS -->
+            <div class="form-block hidden" id="applicationBlock">
+                <h3>Application Details</h3>
+
+                <div class="form-group">
+                    <label>Applying For</label>
+                    <select>
+                        <option>Admin</option>
+                        <option>Gang Leader</option>
+                        <option>Media Team</option>
+                        <option>Support Staff</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- APPEAL FIELDS -->
+            <div class="form-block hidden" id="appealBlock">
+                <h3>Appeal Details</h3>
+
+                <div class="form-group">
+                    <label>Punishment ID</label>
+                    <input type="text" placeholder="APL / TKT / BAN ID">
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Write your message here..."></textarea>
+            </div>
+
+            <!-- SUBMIT -->
+            <button class="btn-mega" disabled>
+                SUBMIT THREAD
+            </button>
+
+            <p class="reply-note">
+                Login required to submit threads.
+            </p>
+
+        </div>
+    </section>
+
+</main>
+
+<script src="/assets/js/forumNew.js"></script>
+</body>
+</html>

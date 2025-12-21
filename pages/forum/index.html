@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Forum</title>
+
+    <!-- CORE STYLES -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/forum.css" />
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">INDIAN <span>RP</span></div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">HOME</a></li>
+                    <li><a href="/pages/features.html">FEATURES</a></li>
+                    <li><a href="/pages/wiki.html">WIKI</a></li>
+                    <li><a href="/pages/rules.html">RULES</a></li>
+                    <li><a href="/pages/community.html">COMMUNITY</a></li>
+                    <li><a href="/pages/forum/index.html" class="active">FORUM</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-mega" disabled>LOGIN</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-content">
+
+        <!-- FORUM CATEGORY BAR -->
+        <section class="forum-bar">
+            <div class="container forum-bar-inner">
+
+                <button class="forum-cat-btn active">Announcements</button>
+                <button class="forum-cat-btn">Community</button>
+
+                <div class="forum-category dropdown">
+                    <button class="forum-cat-btn">Support ▾</button>
+                    <div class="forum-dropdown">
+                        <a href="#" data-category="support-general">General Support</a>
+                        <a href="#" data-category="support-technical">Technical Issues</a>
+                        <a href="#" data-category="support-account">Account Issues</a>
+                    </div>
+                </div>
+
+                <div class="forum-category dropdown">
+                    <button class="forum-cat-btn">Applications ▾</button>
+                    <div class="forum-dropdown">
+                        <a href="#" data-category="app-admin">Admin Application</a>
+                        <a href="#" data-category="app-gang">Gang Application</a>
+                        <a href="#" data-category="app-media">Media Team</a>
+                        <a href="#" data-category="app-support">Support Staff</a>
+                    </div>
+                </div>
+
+                <div class="forum-category dropdown">
+                    <button class="forum-cat-btn">Appeals ▾</button>
+                    <div class="forum-dropdown">
+                        <a href="#" data-category="appeal-punishment">Punishment Appeal</a>
+                        <a href="#" data-category="appeal-admin">Admin Report</a>
+                    </div>
+                </div>
+
+                <button class="forum-cat-btn">Bug Reports</button>
+
+            </div>
+        </section>
+
+        <!-- THREAD LIST -->
+        <section class="forum-content">
+            <div class="container">
+
+                <div class="forum-header">
+                    <h1>Forum</h1>
+                    <a href="new.html" class="btn-mega">NEW THREAD</a>
+                </div>
+
+                <div class="forum-thread-list">
+
+                    <div class="forum-thread">
+                        <span class="thread-badge open">OPEN</span>
+                        <a href="thread.html" class="thread-title">
+                            Unable to connect to server
+                        </a>
+                        <span class="thread-meta">
+                            by Player123 · 2 hours ago
+                        </span>
+                    </div>
+
+                    <div class="forum-thread">
+                        <span class="thread-badge closed">CLOSED</span>
+                        <a href="thread.html" class="thread-title">
+                            Punishment Appeal – TKT-92831
+                        </a>
+                        <span class="thread-meta">
+                            by AdminTeam · 1 day ago
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/assets/js/forum.js"></script>
+</body>
+</html>
