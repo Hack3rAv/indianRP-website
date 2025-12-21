@@ -1,43 +1,99 @@
-<!-- ================= ADMIN HIRING ================= -->
-<section class="page-header">
-    <div class="container">
-        <h1>
-            STAFF <span class="text-accent">HIRING</span>
-        </h1>
-        <p>
-            Review and manage applications submitted by players
-            for various staff and leadership roles.
-        </p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Admin Hiring</title>
 
-<section class="feature-section">
-    <div class="container">
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-        <h2 class="section-title">APPLICATION REVIEW</h2>
+    <!-- ================= ADMIN STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
 
-        <div class="glass-panel" style="max-width: 900px; margin: 0 auto;">
-            <p>
-                This panel is used to evaluate applications for the following roles:
-            </p>
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body class="admin-body">
 
-            <ul style="margin-top:20px; opacity:0.85; font-size:0.95rem;">
-                <li>• Administration Team</li>
-                <li>• Support Staff</li>
-                <li>• Media Team</li>
-                <li>• Gang Leadership</li>
-            </ul>
+    <!-- ================= ADMIN LAYOUT ================= -->
+    <div class="admin-layout">
 
-            <p style="margin-top:20px;">
-                Each application includes player information, experience,
-                motivation, and relevant background details.
-            </p>
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                INDIAN <span>RP</span>
+                <small>ADMIN</small>
+            </div>
 
-            <p style="margin-top:20px; font-size:0.85rem; opacity:0.6;">
-                Application data will appear here after backend integration.
-                Decisions are recorded for audit purposes.
-            </p>
+            <nav class="admin-nav">
+                <a href="/admin/dashboard.html">Dashboard</a>
+                <a href="/admin/tickets.html">Tickets</a>
+                <a href="/admin/appeals.html">Appeals</a>
+                <a href="/admin/hiring.html" class="active">Hiring</a>
+                <a href="/admin/docs.html">Docs</a>
+                <a href="/admin/ranks.html">Ranks</a>
+                <a href="/admin/audit.html" >Audit Logs</a>
+            </nav>
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+        <div class="admin-main">
+
+            <!-- ================= TOP BAR ================= -->
+            <header class="admin-topbar">
+                <h1>Staff Hiring</h1>
+                <div class="admin-user">
+                    <span class="role-badge">ADMIN</span>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <main class="admin-content">
+
+                <!-- ================= ADMIN HIRING ================= -->
+                <section class="admin-section">
+                    <h2 class="admin-section-title">Application Review</h2>
+
+                    <div class="admin-card admin-card-wide">
+                        <p>
+                            This panel is used to evaluate applications submitted by players
+                            for various staff and leadership roles.
+                        </p>
+
+                        <ul class="admin-list">
+                            <li>Administration Team</li>
+                            <li>Support Staff</li>
+                            <li>Media Team</li>
+                            <li>Gang Leadership</li>
+                        </ul>
+
+                        <p>
+                            Each application includes player information, experience,
+                            motivation, and relevant background details.
+                        </p>
+
+                        <p class="admin-note">
+                            Application data will appear here after backend integration.
+                            All decisions are recorded for audit purposes.
+                        </p>
+                    </div>
+
+                </section>
+
+            </main>
+
         </div>
-
     </div>
-</section>
+
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+</body>
+</html>

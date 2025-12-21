@@ -1,38 +1,92 @@
-<!-- ================= ADMIN TICKETS ================= -->
-<section class="page-header">
-    <div class="container">
-        <h1>
-            SUPPORT <span class="text-accent">TICKETS</span>
-        </h1>
-        <p>
-            Manage and review technical support tickets submitted by players.
-            All actions are logged.
-        </p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Admin Tickets</title>
 
-<section class="feature-section">
-    <div class="container">
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-        <h2 class="section-title">TICKET MANAGEMENT</h2>
+    <!-- ================= ADMIN STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
 
-        <div class="glass-panel" style="max-width: 900px; margin: 0 auto;">
-            <p>
-                This section will display all active and resolved tickets.
-                Each ticket is assigned a unique ID and linked to a player account.
-            </p>
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body class="admin-body">
 
-            <ul style="margin-top:20px; opacity:0.8; font-size:0.9rem;">
-                <li>• Ticket ID format: <strong>TKT-XXXXXX</strong></li>
-                <li>• Status: Open / In Review / Resolved</li>
-                <li>• Linked to player ID</li>
-                <li>• Action history logged</li>
-            </ul>
+    <!-- ================= ADMIN LAYOUT ================= -->
+    <div class="admin-layout">
 
-            <p style="margin-top:20px; font-size:0.85rem; opacity:0.6;">
-                Ticket data will be populated once backend integration is complete.
-            </p>
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                INDIAN <span>RP</span>
+                <small>ADMIN</small>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="/admin/dashboard.html">Dashboard</a>
+                <a href="/admin/tickets.html" class="active">Tickets</a>
+                <a href="/admin/appeals.html">Appeals</a>
+                <a href="/admin/hiring.html">Hiring</a>
+                <a href="/admin/docs.html">Docs</a>
+                <a href="/admin/ranks.html">Ranks</a>
+                <a href="/admin/audit.html" >Audit Logs</a>
+            </nav>
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+        <div class="admin-main">
+
+            <!-- ================= TOP BAR ================= -->
+            <header class="admin-topbar">
+                <h1>Support Tickets</h1>
+                <div class="admin-user">
+                    <span class="role-badge">ADMIN</span>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <main class="admin-content">
+
+                <section class="admin-section">
+                    <h2 class="admin-section-title">Ticket Management</h2>
+
+                    <div class="admin-card admin-card-wide">
+                        <p>
+                            This section will display all active and resolved tickets.
+                            Each ticket is assigned a unique ID and linked to a player account.
+                        </p>
+
+                        <ul class="admin-list">
+                            <li>Ticket ID format: <strong>TKT-XXXXXX</strong></li>
+                            <li>Status: Open / In Review / Resolved</li>
+                            <li>Linked to player ID</li>
+                            <li>All actions are audit-logged</li>
+                        </ul>
+
+                        <p class="admin-note">
+                            Ticket data will be populated once backend integration is complete.
+                        </p>
+                    </div>
+
+                </section>
+
+            </main>
+
         </div>
-
     </div>
-</section>
+
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+</body>
+</html>

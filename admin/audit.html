@@ -1,60 +1,110 @@
-<!-- ================= ADMIN AUDIT LOG ================= -->
-<section class="page-header">
-    <div class="container">
-        <h1>
-            AUDIT <span class="text-accent">LOGS</span>
-        </h1>
-        <p>
-            Immutable records of administrative actions.
-            Access is restricted to senior administration only.
-        </p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Admin Audit Logs</title>
 
-<section class="feature-section">
-    <div class="container">
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-        <h2 class="section-title">ADMINISTRATIVE AUDIT TRAIL</h2>
+    <!-- ================= ADMIN STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
 
-        <div class="glass-panel" style="max-width: 950px; margin: 0 auto;">
-            <p>
-                This section records all critical administrative actions,
-                including punishments, appeals decisions, role changes,
-                and system-level interventions.
-            </p>
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body class="admin-body">
 
-            <ul style="margin-top:20px; opacity:0.85; font-size:0.95rem;">
-                <li>• Timestamped entries</li>
-                <li>• Admin ID and rank</li>
-                <li>• Action type and target</li>
-                <li>• Reason and evidence reference</li>
-            </ul>
+    <div class="admin-layout">
 
-            <p style="margin-top:20px;">
-                Audit logs are permanent and cannot be edited or deleted.
-                Any misuse of administrative authority is traceable.
-            </p>
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                INDIAN <span>RP</span>
+                <small>ADMIN</small>
+            </div>
 
-            <p style="margin-top:20px; font-size:0.85rem; opacity:0.6;">
-                Audit data will be populated automatically once backend
-                logging is enabled.
-            </p>
+            <nav class="admin-nav">
+                <a href="/admin/dashboard.html">Dashboard</a>
+                <a href="/admin/tickets.html">Tickets</a>
+                <a href="/admin/appeals.html">Appeals</a>
+                <a href="/admin/hiring.html">Hiring</a>
+                <a href="/admin/docs.html">Docs</a>
+                <a href="/admin/ranks.html">Ranks</a>
+                <a href="/admin/audit.html" class="active">Audit Logs</a>
+            </nav>
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+        <div class="admin-main">
+
+            <!-- ================= TOP BAR ================= -->
+            <header class="admin-topbar">
+                <h1>Audit Logs</h1>
+                <span class="role-badge">SENIOR ADMIN</span>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <main class="admin-content">
+
+                <!-- ================= AUDIT OVERVIEW ================= -->
+                <section class="admin-section">
+                    <h2 class="admin-section-title">Administrative Audit Trail</h2>
+
+                    <div class="admin-card admin-card-wide">
+                        <p>
+                            This section records all critical administrative actions,
+                            including punishments, appeal decisions, role changes,
+                            and system-level interventions.
+                        </p>
+
+                        <ul class="admin-list">
+                            <li>Timestamped entries</li>
+                            <li>Admin ID and rank</li>
+                            <li>Action type and target</li>
+                            <li>Reason and evidence reference</li>
+                        </ul>
+
+                        <p>
+                            Audit logs are permanent and cannot be edited or deleted.
+                            Any misuse of administrative authority is fully traceable.
+                        </p>
+
+                        <p class="admin-note">
+                            Audit data will be populated automatically once backend
+                            logging is enabled.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ================= FINAL WARNING ================= -->
+                <section class="admin-section">
+                    <h2 class="admin-section-title text-accent">
+                        Accountability Notice
+                    </h2>
+
+                    <div class="admin-card admin-card-wide">
+                        <p>
+                            Abuse of power or attempts to bypass logging systems
+                            will result in immediate disciplinary action.
+                        </p>
+                    </div>
+                </section>
+
+            </main>
+
         </div>
-
     </div>
-</section>
 
-<section class="final-cta">
-    <div class="container">
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/app.js"></script>
 
-        <h2 class="text-accent">
-            ⚠️ ACCOUNTABILITY IS MANDATORY
-        </h2>
-
-        <p>
-            Abuse of power or attempts to bypass logging systems
-            will result in immediate disciplinary action.
-        </p>
-
-    </div>
-</section>
+</body>
+</html>

@@ -1,51 +1,106 @@
-<!-- ================= ADMIN DASHBOARD ================= -->
-<section class="page-header">
-    <div class="container">
-        <h1>
-            ADMIN <span class="text-accent">DASHBOARD</span>
-        </h1>
-        <p>
-            Internal administration panel.
-            Access is restricted to authorized staff only.
-        </p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Roleplay | Admin Dashboard</title>
 
-<section class="feature-section">
-    <div class="container">
+    <!-- ================= CORE STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-        <h2 class="section-title">OVERVIEW</h2>
+    <!-- ================= ADMIN STYLES ================= -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
 
-        <div class="feature-grid">
+    <!-- ================= LENIS ================= -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body class="admin-body">
 
-            <div class="glass-panel">
-                <h3>TICKETS</h3>
-                <p>
-                    View and manage player support tickets.
-                </p>
+    <!-- ================= ADMIN LAYOUT ================= -->
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                INDIAN <span>RP</span>
+                <small>ADMIN</small>
             </div>
 
-            <div class="glass-panel">
-                <h3>APPEALS</h3>
-                <p>
-                    Review punishment and admin action appeals.
-                </p>
-            </div>
+            <nav class="admin-nav">
+                <a href="/admin/dashboard.html" class="active">Dashboard</a>
+                <a href="/admin/tickets.html">Tickets</a>
+                <a href="/admin/appeals.html">Appeals</a>
+                <a href="/admin/hiring.html">Hiring</a>
+                <a href="/admin/docs.html">Docs</a>
+                <a href="/admin/ranks.html">Ranks</a>
+                <a href="/admin/audit.html" >Audit Logs</a>
+            </nav>
+        </aside>
 
-            <div class="glass-panel">
-                <h3>APPLICATIONS</h3>
-                <p>
-                    Review applications for staff, gangs, and media.
-                </p>
-            </div>
+        <!-- ================= MAIN ================= -->
+        <div class="admin-main">
 
-            <div class="glass-panel">
-                <h3>AUDIT LOGS</h3>
-                <p>
-                    Access internal logs and administrative actions.
-                </p>
-            </div>
+            <!-- ================= TOP BAR ================= -->
+            <header class="admin-topbar">
+                <h1>Admin Dashboard</h1>
+                <div class="admin-user">
+                    <span class="role-badge">ADMIN</span>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <main class="admin-content">
+
+                <!-- ================= OVERVIEW ================= -->
+                <section class="admin-section">
+                    <h2 class="admin-section-title">Overview</h2>
+
+                    <div class="admin-grid">
+
+                        <div class="admin-card">
+                            <h3>Tickets</h3>
+                            <p>
+                                View and manage player support tickets.
+                            </p>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Appeals</h3>
+                            <p>
+                                Review punishment and admin action appeals.
+                            </p>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Applications</h3>
+                            <p>
+                                Review applications for staff, gangs, and media.
+                            </p>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Audit Logs</h3>
+                            <p>
+                                Access internal logs and administrative actions.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
 
         </div>
     </div>
-</section>
+
+    <!-- ================= CORE SCRIPTS ================= -->
+    <script src="/config/site.config.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+</body>
+</html>
