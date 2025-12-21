@@ -1,4 +1,22 @@
 /* =====================================================
+   DISABLE PUBLIC SITE LAYOUT FOR ADMIN PAGES
+   ===================================================== */
+
+.admin-body header,
+.admin-body footer,
+.admin-body .nav-container,
+.admin-body .site-header {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+/* =====================================================
    ADMIN PANEL STYLES
    Depends on core.css variables
    ===================================================== */
