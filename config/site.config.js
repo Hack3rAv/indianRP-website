@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
     // -----------------------------
     // MAINTENANCE MODE (FRONTEND)
     // -----------------------------
-    MAINTENANCE_MODE: false,
+    MAINTENANCE_MODE: true,
 
     // -----------------------------
     // ROUTING

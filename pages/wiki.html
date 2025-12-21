@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Indian Roleplay | Wiki</title>
 
-    <!-- ================= CORE STYLES ================= -->
     <link rel="stylesheet" href="/assets/css/core.css" />
     <link rel="stylesheet" href="/assets/css/layout.css" />
     <link rel="stylesheet" href="/assets/css/components.css" />
@@ -13,19 +12,39 @@
     <link rel="stylesheet" href="/assets/css/wiki.css" />
     <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-    <!-- ================= LENIS ================= -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <style>
+        /* Hidden by default */
+        .wiki-content-page {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        /* Show when active */
+        .wiki-content-page.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wiki-nav-item { cursor: pointer; transition: 0.3s; }
+        .wiki-nav-item.active { 
+            color: var(--accent-color, #ffcc00); 
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--accent-color, #ffcc00);
+            padding-left: 15px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ================= HEADER ================= -->
     <header>
         <div class="nav-container">
-
-            <div class="logo">
-                INDIAN <span>RP</span>
-            </div>
-
+            <div class="logo">INDIAN <span>RP</span></div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/index.html">HOME</a></li>
@@ -36,147 +55,160 @@
                     <li><a href="/pages/download.html">DOWNLOAD</a></li>
                 </ul>
             </nav>
-
             <div class="header-actions">
                 <div id="headerStatus"></div>
                 <button class="btn-mega" disabled>LOGIN</button>
             </div>
-
         </div>
     </header>
 
-    <!-- ================= WIKI PAGE ================= -->
-    <main>
-        <section class="wiki-page">
+    <main id="app-content">
 
+        <section class="page-header">
+            <div class="container">
+                <h1>INDIAN RP <span class="text-accent">WIKI</span></h1>
+                <p>Select a category from the sidebar to view specific documentation.</p>
+            </div>
+        </section>
+
+        <section class="wiki-page">
             <div class="container wiki-container">
 
-                <!-- ================= SIDEBAR ================= -->
                 <aside class="wiki-sidebar">
-
-                    <input
-                        type="text"
-                        class="wiki-search"
-                        placeholder="SEARCH DOCUMENTATION..."
-                        disabled
-                    />
-
+                    <input type="text" class="wiki-search" placeholder="SEARCH DOCUMENTATION..." />
+                    
                     <div class="wiki-nav">
-
                         <div class="wiki-nav-group">
                             <div class="wiki-nav-title">CORE RULES</div>
-                            <a href="#" class="wiki-nav-item active">General Rules</a>
-                            <a href="#" class="wiki-nav-item">Combat Rules</a>
-                            <a href="#" class="wiki-nav-item">Roleplay Violations</a>
+                            <div class="wiki-nav-item active" data-target="general-rules">General Rules</div>
+                            <div class="wiki-nav-item" data-target="combat-rules">Combat Rules</div>
+                            <div class="wiki-nav-item" data-target="rp-violations">RP Violations</div>
                         </div>
 
                         <div class="wiki-nav-group">
                             <div class="wiki-nav-title">ADMINISTRATION</div>
-                            <a href="#" class="wiki-nav-item">Admin Rules</a>
-                            <a href="#" class="wiki-nav-item">Punishment System</a>
-                            <a href="#" class="wiki-nav-item">Appeals</a>
+                            <div class="wiki-nav-item" data-target="admin-system">Staff & Punishments</div>
                         </div>
 
                         <div class="wiki-nav-group">
                             <div class="wiki-nav-title">GUIDES</div>
-                            <a href="#" class="wiki-nav-item">Getting Started</a>
-                            <a href="#" class="wiki-nav-item">Legal Jobs</a>
-                            <a href="#" class="wiki-nav-item">Illegal Activities</a>
-                            <a href="#" class="wiki-nav-item">Keybinds</a>
+                            <div class="wiki-nav-item" data-target="jobs-guide">Legal & Illegal Jobs</div>
+                            <div class="wiki-nav-item" data-target="controls">Keybinds</div>
                         </div>
-
                     </div>
                 </aside>
 
-                <!-- ================= CONTENT ================= -->
-                <article class="wiki-content">
+                <article class="wiki-content" id="wiki-display-area">
 
-                    <header class="wiki-header">
-                        <h1>
-                            INDIAN RP <span class="text-accent">WIKI</span>
-                        </h1>
-                        <p>
-                            Official documentation for Indian Roleplay.
-                            Rules, systems, and guides every player must know.
-                        </p>
-                    </header>
-
-                    <!-- ================= RULE SECTION ================= -->
-                    <section class="wiki-section">
-
+                    <div id="general-rules" class="wiki-content-page active-page">
                         <h2>1. GENERAL ROLEPLAY RULES</h2>
-
                         <div class="wiki-card">
-                            <h3>1.1 Stay In Character</h3>
+                            <h3>1.1 Stay In Character (IC)</h3>
                             <span class="badge badge-primary">CORE</span>
-                            <p>
-                                Players must remain in character at all times.
-                                Out-of-character communication in voice or local chat
-                                is strictly prohibited.
-                            </p>
+                            <p>You must remain in character at all times. Using "My mic is broken" or talking about your real-life day in voice chat is FailRP.</p>
                         </div>
-
                         <div class="wiki-card">
                             <h3>1.2 Powergaming</h3>
-                            <span class="badge badge-danger">PUNISHABLE</span>
-                            <p>
-                                Performing actions that are unrealistic or force roleplay
-                                on others without giving them a chance to respond.
-                            </p>
+                            <span class="badge badge-danger">BANABLE</span>
+                            <p>Performing impossible acts or forcing actions on others (e.g. "Smashes your head so you die instantly").</p>
                         </div>
+                    </div>
 
-                    </section>
-
-                    <!-- ================= COMBAT SECTION ================= -->
-                    <section class="wiki-section">
-
+                    <div id="combat-rules" class="wiki-content-page">
                         <h2>2. COMBAT RULES</h2>
-
                         <div class="wiki-card">
-                            <h3>2.1 Deathmatching (DM)</h3>
-                            <span class="badge badge-danger">STRICT</span>
-                            <p>
-                                Killing another player without a valid roleplay reason
-                                is forbidden and will result in punishment.
-                            </p>
+                            <h3>2.1 RDM (Random Deathmatch)</h3>
+                            <p>Killing someone without any prior verbal interaction or roleplay reason is strictly forbidden.</p>
                         </div>
-
                         <div class="wiki-card">
-                            <h3>2.2 New Life Rule (NLR)</h3>
-                            <span class="badge badge-primary">IMPORTANT</span>
-                            <p>
-                                After death, a player must forget all events leading
-                                to that situation and may not return for a defined time.
-                            </p>
+                            <h3>2.2 VDM (Vehicle Deathmatch)</h3>
+                            <p>Using your vehicle as a weapon to ram or kill players is not allowed.</p>
                         </div>
+                    </div>
 
-                    </section>
+                    <div id="rp-violations" class="wiki-content-page">
+                        <h2>3. RP VIOLATIONS</h2>
+                        <div class="wiki-card">
+                            <h3>3.1 FearRP</h3>
+                            <p>You must show fear for your life. If someone has a gun to your head, you cannot just run away or pull out your own gun.</p>
+                        </div>
+                    </div>
+
+                    <div id="admin-system" class="wiki-content-page">
+                        <h2>4. ADMINISTRATION</h2>
+                        <div class="wiki-card">
+                            <h3>Staff Assistance</h3>
+                            <p>Use <strong>/report</strong> to contact staff. Do not spam. Provide clips/recordings for proof.</p>
+                        </div>
+                    </div>
+
+                    <div id="jobs-guide" class="wiki-content-page">
+                        <h2>5. JOBS & ECONOMY</h2>
+                        <div class="wiki-card">
+                            <h3>Legal: Delivery & Mining</h3>
+                            <p>Earn clean money at the Job Center. These jobs are safe from police interference.</p>
+                        </div>
+                        <div class="wiki-card">
+                            <h3>Illegal: Drug Crafting</h3>
+                            <p>High reward but high risk. Police can arrest you and seize your items if caught.</p>
+                        </div>
+                    </div>
+
+                    <div id="controls" class="wiki-content-page">
+                        <h2>6. KEYBINDS</h2>
+                        <div class="wiki-card">
+                            <p><strong>F1:</strong> Interaction Menu</p>
+                            <p><strong>K:</strong> Inventory</p>
+                            <p><strong>U:</strong> Lock Vehicle</p>
+                            <p><strong>M:</strong> Phone</p>
+                        </div>
+                    </div>
 
                 </article>
-
             </div>
         </section>
     </main>
 
-    <!-- ================= FOOTER ================= -->
     <footer>
         <div class="container footer-content">
-            <h2>
-                POWERED BY <span class="text-primary">NEOPIX</span>
-            </h2>
-            <p>
-                &copy; 2025 Indian Roleplay. All rights reserved.
-            </p>
+            <p>&copy; 2025 Indian Roleplay Wiki | Powered by Neopix</p>
         </div>
     </footer>
 
-    <!-- ================= CORE SCRIPTS ================= -->
-    <script src="/config/site.config.js"></script>
-    <script src="/assets/js/utils.js"></script>
-    <script src="/assets/js/serverStatus.js"></script>
-    <script src="/assets/js/parallax.js"></script>
-    <script src="/assets/js/horizontal.js"></script>
-    <script src="/assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.wiki-nav-item');
+            const pages = document.querySelectorAll('.wiki-content-page');
 
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+
+                    // 1. Update Sidebar UI
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // 2. Switch Content
+                    pages.forEach(page => {
+                        page.classList.remove('active-page');
+                        if (page.id === targetId) {
+                            page.classList.add('active-page');
+                        }
+                    });
+
+                    // 3. Scroll to top of content for mobile users
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        });
+
+        // Initialize Lenis for smooth scrolling
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
 </body>
 </html>
