@@ -10,117 +10,307 @@
     <link rel="stylesheet" href="/assets/css/layout.css" />
     <link rel="stylesheet" href="/assets/css/components.css" />
     <link rel="stylesheet" href="/assets/css/forum.css" />
+
+    <!-- ADMIN FORUM STYLES -->
+    <link rel="stylesheet" href="/assets/css/forum-admin.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">INDIAN <span>RP</span></div>
+<!-- ================= HEADER ================= -->
+<header>
+    <div class="nav-container">
+        <div class="logo">INDIAN <span>RP</span></div>
 
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/index.html">HOME</a></li>
-                    <li><a href="/pages/features.html">FEATURES</a></li>
-                    <li><a href="/pages/wiki.html">WIKI</a></li>
-                    <li><a href="/pages/rules.html">RULES</a></li>
-                    <li><a href="/pages/community.html">COMMUNITY</a></li>
-                    <li><a href="/pages/forum/index.html" class="active">FORUM</a></li>
-                </ul>
-            </nav>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">HOME</a></li>
+                <li><a href="/pages/features.html">FEATURES</a></li>
+                <li><a href="/pages/wiki.html">WIKI</a></li>
+                <li><a href="/pages/rules.html">RULES</a></li>
+                <li><a href="/pages/community.html">COMMUNITY</a></li>
+                <li><a href="/pages/forum/index.html" class="active">FORUM</a></li>
+            </ul>
+        </nav>
 
-            <div class="header-actions">
-                <button class="btn-mega" disabled>LOGIN</button>
-            </div>
+        <div class="header-actions">
+            <button class="btn-mega" disabled>LOGIN</button>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main id="app-content">
+<main id="app-content">
 
-        <!-- THREAD HEADER -->
-        <section class="forum-thread-header">
-            <div class="container">
-                <span class="thread-badge open">OPEN</span>
-                <h1 class="thread-title">
-                    Unable to connect to server
-                </h1>
-                <p class="thread-meta">
-                    Posted by <strong>Player123</strong> · 2 hours ago · Support / Technical
-                </p>
-            </div>
-        </section>
+    <!-- ================= THREAD HEADER ================= -->
+    <section class="forum-thread-header">
+        <div class="container">
+            <span class="thread-badge open" id="threadBadge">OPEN</span>
+            <h1 class="thread-title">
+                Unable to connect to server
+            </h1>
+            <p class="thread-meta">
+                Posted by <strong>Player123</strong> · 2 hours ago · Support / Technical
+            </p>
+        </div>
+    </section>
 
-        <!-- THREAD POSTS -->
-        <section class="forum-thread-content">
-            <div class="container">
+    <!-- ================= THREAD POSTS ================= -->
+    <section class="forum-thread-content">
+        <div class="container">
 
-                <!-- ORIGINAL POST -->
-                <div class="forum-post">
-                    <div class="post-author">
-                        <strong>Player123</strong>
-                        <span class="role user">USER</span>
-                    </div>
-
-                    <div class="post-body">
-                        <p>
-                            I am unable to connect to the server since today morning.
-                            The launcher opens but connection fails with timeout.
-                        </p>
-
-                        <p>
-                            I have already restarted my PC and checked files.
-                        </p>
-                    </div>
-
-                    <div class="post-footer">
-                        Posted · 2 hours ago
-                    </div>
+            <!-- ORIGINAL POST -->
+            <div class="forum-post">
+                <div class="post-author">
+                    <strong>Player123</strong>
+                    <span class="role user">USER</span>
                 </div>
 
-                <!-- ADMIN REPLY -->
-                <div class="forum-post admin">
-                    <div class="post-author">
-                        <strong>Admin_Nirbhay</strong>
-                        <span class="role admin">ADMIN</span>
-                    </div>
+                <div class="post-body">
+                    <p>
+                        I am unable to connect to the server since today morning.
+                        The launcher opens but connection fails with timeout.
+                    </p>
+                    <p>
+                        I have already restarted my PC and checked files.
+                    </p>
+                </div>
 
-                    <div class="post-body">
-                        <p>
-                            We are aware of this issue. Please clear your cache
-                            and restart the launcher.
-                        </p>
+                <div class="post-footer">
+                    Posted · 2 hours ago
+                </div>
+            </div>
 
-                        <p>
-                            If the issue persists, reply here with logs.
-                        </p>
-                    </div>
+            <!-- ================= ADMIN TOOLS ================= -->
+            <div class="admin-tools hidden" id="adminTools">
+                <div class="admin-tools-header">
+                    ADMIN TOOLS
+                    <span class="admin-rank" id="adminRank">Support Admin</span>
+                </div>
 
-                    <div class="post-footer">
-                        Official Response · 1 hour ago
-                    </div>
+                <div class="admin-tools-grid">
+                    <button class="admin-btn" data-action="reply">ADMIN REPLY</button>
+                    <button class="admin-btn" data-action="close">CLOSE THREAD</button>
+                    <button class="admin-btn" data-action="lock">LOCK THREAD</button>
+                    <button class="admin-btn" data-action="move">MOVE THREAD</button>
+                    <button class="admin-btn danger" data-action="status">CHANGE STATUS</button>
+                </div>
+            </div>
+
+            <!-- ADMIN REPLY -->
+            
+            <div class="forum-post admin official" data-priority="official">
+
+                <div class="post-author">
+                    <strong>Admin_Nirbhay</strong>
+                    <span class="role admin">SUPPORT ADMIN</span>
+                    <span class="admin-badge">OFFICIAL</span>
+                </div>
+
+                <div class="post-body">
+                    <p>
+                        We are aware of this issue. Please clear your cache
+                        and restart the launcher.
+                    </p>
+
+                    <p>
+                        If the issue persists, reply here with logs.
+                    </p>
+                </div>
+
+                <div class="post-footer">
+                    Official Response · 1 hour ago
                 </div>
 
             </div>
-        </section>
 
-        <!-- REPLY BOX (PLACEHOLDER) -->
-        <section class="forum-reply">
-            <div class="container">
-                <h3>Post a Reply</h3>
 
-                <textarea
-                    class="forum-textarea"
-                    placeholder="Write your reply here..."
-                    disabled
-                ></textarea>
+        </div>
+    </section>
 
-                <p class="reply-note">
-                    Login required to reply.
-                </p>
-            </div>
-        </section>
+    <!-- ================= REPLY BOX ================= -->
+    <section class="forum-reply" id="replyBox">
+        <div class="container">
+            <h3>Post a Reply</h3>
 
-    </main>
+            <textarea
+                class="forum-textarea"
+                placeholder="Write your reply here..."
+                disabled
+            ></textarea>
+
+            <p class="reply-note">
+                Login required to reply.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= MOVE THREAD MODAL ================= -->
+<div class="modal hidden" id="moveModal">
+
+    <div class="modal-box">
+        <h3>Move Thread</h3>
+
+        <div class="form-group">
+            <label>New Category</label>
+            <select id="moveCategory">
+                <option value="discussion">Discussion</option>
+                <option value="support">Support</option>
+                <option value="application">Application</option>
+                <option value="appeal">Appeal</option>
+                <option value="archive">Archive</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Reason (Required)</label>
+            <textarea
+                id="moveReason"
+                placeholder="Explain why this thread is being moved..."
+            ></textarea>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-outline" id="cancelMove">Cancel</button>
+            <button class="btn-mega" id="confirmMove">Move Thread</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+</main>
+
+<!-- ================= PERMISSIONS + ADMIN LOGIC ================= -->
+<script>
+/* ================= MOCK DATA (BACKEND WILL REPLACE) ================= */
+const CURRENT_USER_ROLE = "support";     // guest | user | support | appeal | admin
+const THREAD_TYPE = "support";            // discussion | support | application | appeal
+let THREAD_STATUS = "open";               // open | closed | locked
+
+/* ================= PERMISSION MATRIX ================= */
+const PERMISSIONS = {
+    guest:   { view:["discussion"], reply:[], admin:false },
+    user:    { view:["discussion","support"], reply:["discussion","support"], admin:false },
+    support: { view:["discussion","support"], reply:["discussion","support"], admin:true },
+    appeal:  { view:["discussion","appeal"], reply:["discussion","appeal"], admin:true },
+    admin:   { view:["discussion","support","application","appeal"], reply:["all"], admin:true }
+};
+
+/* ================= ELEMENTS ================= */
+const adminTools = document.getElementById("adminTools");
+const replyBox   = document.getElementById("replyBox");
+const badge      = document.getElementById("threadBadge");
+const page       = document.querySelector("main");
+
+/* ================= VIEW PERMISSION ================= */
+if (!PERMISSIONS[CURRENT_USER_ROLE].view.includes(THREAD_TYPE)) {
+    document.body.innerHTML = "<h1 style='padding:40px'>403 — Forbidden</h1>";
+}
+
+/* ================= ADMIN TOOLS ================= */
+if (PERMISSIONS[CURRENT_USER_ROLE].admin) {
+    adminTools.classList.remove("hidden");
+}
+
+/* ================= REPLY PERMISSION ================= */
+if (
+    THREAD_STATUS !== "open" ||
+    (!PERMISSIONS[CURRENT_USER_ROLE].reply.includes(THREAD_TYPE)
+     && !PERMISSIONS[CURRENT_USER_ROLE].reply.includes("all"))
+) {
+    replyBox.style.display = "none";
+}
+
+/* ================= STATUS HANDLER ================= */
+function setStatus(status) {
+    THREAD_STATUS = status;
+
+    badge.className = "thread-badge " + status;
+    badge.textContent = status.toUpperCase();
+
+    page.classList.remove("thread-open","thread-closed","thread-locked");
+    page.classList.add("thread-" + status);
+
+    if (status !== "open") replyBox.style.display = "none";
+}
+
+/* ================= ADMIN ACTIONS ================= */
+document.querySelectorAll(".admin-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const action = btn.dataset.action;
+        if (action === "close") setStatus("closed");
+        if (action === "lock") setStatus("locked");
+        if (action === "status") setStatus("open");
+    });
+});
+</script>
+
+<script>
+/* ================= MOVE THREAD ================= */
+const moveBtn = document.querySelector('[data-action="move"]');
+const modal = document.getElementById("moveModal");
+const cancelBtn = document.getElementById("cancelMove");
+const confirmBtn = document.getElementById("confirmMove");
+
+moveBtn?.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+});
+
+cancelBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+
+confirmBtn.addEventListener("click", () => {
+    const category = document.getElementById("moveCategory").value;
+    const reason = document.getElementById("moveReason").value.trim();
+
+    if (!reason) {
+        alert("Reason is required.");
+        return;
+    }
+
+    // Update thread meta (frontend)
+    document.querySelector(".thread-meta").innerHTML =
+        `Moved by <strong>Admin</strong> · ${category.toUpperCase()}`;
+
+    // Insert system post
+    insertSystemPost(category, reason);
+
+    modal.classList.add("hidden");
+});
+
+/* ================= SYSTEM POST ================= */
+function insertSystemPost(category, reason) {
+    const container = document.querySelector(".forum-thread-content .container");
+
+    const post = document.createElement("div");
+    post.className = "forum-post admin system";
+
+    post.innerHTML = `
+        <div class="post-author">
+            <strong>SYSTEM</strong>
+            <span class="role admin">ADMIN PANEL</span>
+            <span class="admin-badge">MOVED</span>
+        </div>
+
+        <div class="post-body">
+            <p>
+                This thread was moved to <strong>${category}</strong>.
+            </p>
+            <p>
+                Reason: ${reason}
+            </p>
+        </div>
+
+        <div class="post-footer">
+            System Action · Just now
+        </div>
+    `;
+
+    container.appendChild(post);
+}
+</script>
+
 
 </body>
 </html>

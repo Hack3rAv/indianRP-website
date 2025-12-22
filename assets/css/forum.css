@@ -320,3 +320,66 @@
 .hidden {
     display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   THREAD STATUS BADGES
+   ===================================================== */
+
+.thread-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border: 1px solid;
+    margin-bottom: 16px;
+}
+
+/* OPEN */
+.thread-badge.open {
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+/* CLOSED */
+.thread-badge.closed {
+    color: #ffaa00;
+    border-color: #ffaa00;
+}
+
+/* LOCKED */
+.thread-badge.locked {
+    color: #ff4444;
+    border-color: #ff4444;
+}
+
+/* =====================================================
+   REPLY BLOCK STATES
+   ===================================================== */
+
+.thread-locked .forum-reply,
+.thread-closed .forum-reply {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.thread-locked .reply-note::before {
+    content: "🔒 THREAD LOCKED — ";
+}
+
+.thread-closed .reply-note::before {
+    content: "⛔ THREAD CLOSED — ";
+}
