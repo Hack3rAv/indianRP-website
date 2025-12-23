@@ -44,87 +44,18 @@
     <section class="forum-thread-header">
         <div class="container">
             <span class="thread-badge open" id="threadBadge">OPEN</span>
-            <h1 class="thread-title">
-                Unable to connect to server
-            </h1>
-            <p class="thread-meta">
-                Posted by <strong>Player123</strong> · 2 hours ago · Support / Technical
-            </p>
+            <h1 class="thread-title" id="threadTitle"></h1>
+
+            <p class="thread-meta" id="threadMeta"></p>
+
         </div>
     </section>
 
     <!-- ================= THREAD POSTS ================= -->
     <section class="forum-thread-content">
-        <div class="container">
-
-            <!-- ORIGINAL POST -->
-            <div class="forum-post">
-                <div class="post-author">
-                    <strong>Player123</strong>
-                    <span class="role user">USER</span>
-                </div>
-
-                <div class="post-body">
-                    <p>
-                        I am unable to connect to the server since today morning.
-                        The launcher opens but connection fails with timeout.
-                    </p>
-                    <p>
-                        I have already restarted my PC and checked files.
-                    </p>
-                </div>
-
-                <div class="post-footer">
-                    Posted · 2 hours ago
-                </div>
-            </div>
-
-            <!-- ================= ADMIN TOOLS ================= -->
-            <div class="admin-tools hidden" id="adminTools">
-                <div class="admin-tools-header">
-                    ADMIN TOOLS
-                    <span class="admin-rank" id="adminRank">Support Admin</span>
-                </div>
-
-                <div class="admin-tools-grid">
-                    <button class="admin-btn" data-action="reply">ADMIN REPLY</button>
-                    <button class="admin-btn" data-action="close">CLOSE THREAD</button>
-                    <button class="admin-btn" data-action="lock">LOCK THREAD</button>
-                    <button class="admin-btn" data-action="move">MOVE THREAD</button>
-                    <button class="admin-btn danger" data-action="status">CHANGE STATUS</button>
-                </div>
-            </div>
-
-            <!-- ADMIN REPLY -->
-            
-            <div class="forum-post admin official" data-priority="official">
-
-                <div class="post-author">
-                    <strong>Admin_Nirbhay</strong>
-                    <span class="role admin">SUPPORT ADMIN</span>
-                    <span class="admin-badge">OFFICIAL</span>
-                </div>
-
-                <div class="post-body">
-                    <p>
-                        We are aware of this issue. Please clear your cache
-                        and restart the launcher.
-                    </p>
-
-                    <p>
-                        If the issue persists, reply here with logs.
-                    </p>
-                </div>
-
-                <div class="post-footer">
-                    Official Response · 1 hour ago
-                </div>
-
-            </div>
-
-
-        </div>
+    <div class="container" id="postsContainer"></div>
     </section>
+
 
     <!-- ================= REPLY BOX ================= -->
     <section class="forum-reply" id="replyBox">
@@ -179,6 +110,18 @@
 
 
 </main>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ================= PERMISSIONS + ADMIN LOGIC ================= -->
 <script>
@@ -313,4 +256,80 @@ function insertSystemPost(category, reason) {
 
 
 </body>
+
+<script>
+(async function () {
+    const params = new URLSearchParams(window.location.search);
+    const threadId = params.get("id");
+
+    if (!threadId) {
+        document.body.innerHTML = "<h2 style='padding:40px'>Invalid thread</h2>";
+        return;
+    }
+
+    try {
+        const res = await fetch(
+            `http://localhost:3000/api/forum/threads/${threadId}`
+        );
+        const data = await res.json();
+
+        if (!data.success) {
+            throw new Error("Thread not found");
+        }
+
+        const { thread, posts } = data;
+
+        // ---------- HEADER ----------
+        document.getElementById("threadTitle").textContent = thread.title;
+
+        document.getElementById("threadMeta").innerHTML = `
+            Posted by <strong>${thread.username}</strong> ·
+            ${new Date(thread.created_at).toLocaleString()}
+        `;
+
+        const badge = document.getElementById("threadBadge");
+        badge.textContent = thread.status.toUpperCase();
+        badge.className = "thread-badge " + thread.status;
+
+        // ---------- POSTS ----------
+        const container = document.getElementById("postsContainer");
+        container.innerHTML = "";
+
+        posts.forEach(post => {
+            const div = document.createElement("div");
+            div.className = "forum-post";
+
+            div.innerHTML = `
+                <div class="post-author">
+                    <strong>${post.username}</strong>
+                    <span class="role ${post.post_type}">
+                        ${post.post_type.toUpperCase()}
+                    </span>
+                </div>
+
+                <div class="post-body">
+                    ${post.content
+                        .split("\n")
+                        .map(p => `<p>${p}</p>`)
+                        .join("")}
+                </div>
+
+                <div class="post-footer">
+                    Posted · ${new Date(post.created_at).toLocaleString()}
+                </div>
+            `;
+
+            container.appendChild(div);
+        });
+
+    } catch (err) {
+        console.error(err);
+        document.body.innerHTML =
+            "<h2 style='padding:40px'>Failed to load thread</h2>";
+    }
+})();
+</script>
+
+
+
 </html>

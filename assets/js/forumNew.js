@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     const categorySelect = document.getElementById("threadCategory");
     const titleInput = document.getElementById("threadTitle");
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         appealBlock.classList.add("hidden");
 
         if (value === "support") supportBlock.classList.remove("hidden");
-        if (value === "application") applicationBlock.classList.remove("hidden");
-        if (value === "appeal") appealBlock.classList.remove("hidden");
+        if (value === "applications") applicationBlock.classList.remove("hidden");
+        if (value === "appeals") appealBlock.classList.remove("hidden");
     });
 
     // -------------------------
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // TEMP category → ID mapping
+        // TEMP DEV mapping (DB will replace this later)
         const categoryMap = {
             announcements: 1,
             support: 2,
@@ -54,6 +54,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             type: category
         };
 
+        submitBtn.disabled = true;
+        submitBtn.textContent = "CREATING...";
+
         try {
             const res = await fetch("http://localhost:3000/api/forum/thread", {
                 method: "POST",
@@ -65,18 +68,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const data = await res.json();
 
-            if (!data.success) {
-                alert(data.message || "Failed to create thread");
-                return;
+            if (!res.ok || !data.success) {
+                throw new Error(data.message || "Thread creation failed");
             }
 
-            // Redirect to thread page
-            window.location.href = `/pages/forum/thread.html?id=${data.threadId}`;
+            // ✅ SUCCESS
+            window.location.href =
+                `/pages/forum/thread.html?id=${data.threadId}`;
 
         } catch (err) {
-            console.error(err);
-            alert("Server error");
+            console.error("Create thread error:", err);
+            alert("Failed to create thread");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "SUBMIT THREAD";
         }
     });
-
 });
